@@ -9,7 +9,7 @@ const corsOptions = {
   methods: 'GET,PUT,POST,DELETE', // Allow these HTTP methods
   optionsSuccessStatus: 200, // Some legacy browsers choke on 204
 };
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://sameeratlas:sameeratlaspass@cluster0.ynl9fbo.mongodb.net/stocktracker', { useNewUrlParser: true, useUnifiedTopology: true });
