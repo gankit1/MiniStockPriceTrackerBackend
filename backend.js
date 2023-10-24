@@ -4,8 +4,12 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
-
-app.use(cors());
+const corsOptions = {
+  origin: 'https://mini-stock-price-tracker-frontend-gilt.vercel.app/', // Allow requests only from this origin
+  methods: 'GET,PUT,POST,DELETE', // Allow these HTTP methods
+  optionsSuccessStatus: 200, // Some legacy browsers choke on 204
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://sameeratlas:sameeratlaspass@cluster0.ynl9fbo.mongodb.net/stocktracker', { useNewUrlParser: true, useUnifiedTopology: true });
